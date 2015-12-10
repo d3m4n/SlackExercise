@@ -1,0 +1,8 @@
+pytest
+requests
+beautifulsoup4
+flask
+flask-script
+flask-bootstrap
+flask-wtf
+
