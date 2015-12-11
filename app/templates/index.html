@@ -21,7 +21,7 @@
 </div>
 
 <div class="container">
-    {{ wtf.quick_form(form) }}
+    {{ wtf.quick_form(form, method='get') }}
 </div>
 
 <div class="container spinner-container">
@@ -34,32 +34,12 @@
     <div class="alert alert-danger" role="alert">
         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
         <span class="sr-only">Error:</span>
-        A server error occurred. Are you sure the url contains valid html?
+        Bad request. Are you sure the url is valid and reachable? Did you forget to prefix http(s)?
     </div>
 </div>
-
-
-{% if summary %}
-<div class="container summary">
-    <div class="header">
-        <h2> Tag Summary </h2>
-    </div>
-    {% for tag, tag_count in summary.iteritems() %}
-    {{ render_tag(tag, tag_count) }}
-    {% endfor %}
-</div>
-<div class="container source">
-    <div class="header">
-        <h2> Page Source </h2>
-    </div>
-    <pre class="page-source-container">
-       <code class="page-source">
-         {{ source }}
-       </code>
-    </pre>
-</div>
-</div>
+<div class="container">
+  <div class="row spacer">
+  </div>
 </div>
 
-{% endif %}
 {% endblock %}
