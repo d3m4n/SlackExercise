@@ -16,3 +16,8 @@ hr {
 .highlight {
     background-color: #F0E68C;
 }
+
+.spacer {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

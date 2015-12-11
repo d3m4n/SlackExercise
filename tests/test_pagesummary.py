@@ -21,7 +21,10 @@ class TestPageSummary:
         _, tag_summary = get_tag_summary_from_html(html)
         assert tag_summary['body'] == 1
         _, tag_summary = get_tag_summary_from_html('a')
-        assert not tag_summary
+        # lxml attempts to fix "bad" html
+        assert tag_summary['html'] == 1
+        assert tag_summary['body'] == 1
+        assert tag_summary['p'] == 1
 
     def test_no_html(self):
         _, tag_summary = get_tag_summary_from_html('')
@@ -38,7 +41,7 @@ class TestPageSummary:
         source, tag_summary = get_tag_summary_from_html(html)
         assert tag_summary['div'] == 2
         assert tag_summary['span'] == 1
-        
+
     def test_html_with_style_and_js(self):
         html = """
         <html>
@@ -52,5 +55,3 @@ class TestPageSummary:
         source, tag_summary = get_tag_summary_from_html(html)
         assert tag_summary['script'] == 2
         assert tag_summary['style'] == 1
-        
-    

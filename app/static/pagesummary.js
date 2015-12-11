@@ -9,6 +9,8 @@ $(document).ready(function() {
         $('#summary-spinner').hide();
     });
 
+    $('#url_field').val('http://');
+
     // Handle highlighting of source
     var SCROLLTOP_OFFSET = 100;
     $('body').on('click', '.tag-name', function(event) {
@@ -27,6 +29,7 @@ $(document).ready(function() {
     // Add summary of page and page source
     function buildSummary(response) {
         if (!response || !response.summary || !response.source) {
+            console.log(response);
             $('.error').show();
             return;
         }
@@ -39,6 +42,9 @@ $(document).ready(function() {
 
         var sourceContainer = PageSummaryUtils.buildSourceContainer(response.source);
         $('body').append(sourceContainer);
+        $('html, body').animate({
+        scrollTop: $(".tag-summary").offset().top - SCROLLTOP_OFFSET
+    }, 400);
     };
 
     // Handle form submission via AJAX
@@ -47,7 +53,7 @@ $(document).ready(function() {
         $.ajax({
             url: '/pagesummary',
             data: $('form').serialize(),
-            type: 'POST',
+            type: 'GET',
             success: function(response) {
                 buildSummary(response);
             },

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">  
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-sm-8">
+      <h1 class="page-header">About</h1>
+      <p>
+        This web app takes as input, a URL from the user. The web app
+        then fetches the HTML of the page and displays the source to
+        the user. A summary of the document is displayed, listing
+        which tags are present in the HTML and how many of each
+        tag. Clicking on the name of each tag in the summary will
+        highlight the tags in the source code view.
+      </p>
+      <p>
+        The app backend is built on top of Flask, a microframework for
+        building Python web apps.  I chose Flask because I have worked
+        with it very recently and found it easy to customize. Being a
+        small framework, it is also very easy to read Flask source
+        code should I ever need to debug it. For parsing and
+        processing HTML, I use BeautifulSoup (clean interface) with an
+        lxml parser (fast C based parser).
+      </p>
+      <p>
+        The app's frontend is built on top of Jinja2, Bootstrap and
+        jQuery. Flask and Bootstrap play well together so I was able to
+        (relatively easily) come up with a bare bones template for the page. For
+        client side processing, I chose jQuery because the task itself was not
+        complicated enough to warrant the use of a more involved framework
+        like Angular or React. jQuery sufficed for most of my needs.  I also
+        made use of Underscorejs, a library which provides lots of functional
+        programming helpers.  My main motivation for including Underscorejs
+        was syntactic sugar. I liked the functional interface it
+        provides. Finally for client side unit testing, I made use of QUnit, a
+        JavaScript testing framework.
+      </p>
+      <p>
+        Note: The exercise did not specify which part of the tag to
+        highlight. I made the decision to highlight both the opening
+        and closing tags. It would be a simple change to modify what
+        specifically is highlighted.
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}

@@ -4,5 +4,5 @@ from wtforms import StringField, SubmitField
 from wtforms.fields.html5 import URLField
 
 class WebPageForm(Form):
-    url_field = URLField('URL', validators=[Required(), url()])
+    url_field = URLField('URL', validators=[Required(), url(require_tld=False)])
     submit_field = SubmitField('Fetch')
