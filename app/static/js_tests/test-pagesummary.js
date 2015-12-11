@@ -2,7 +2,17 @@ QUnit.test( "Test applyHighlighting", function( assert ) {
     var sourceTag = $('<pre><code class="page-source">&lt; madeUpTag someprop &gt;</code></pre>');
     PageSummaryUtils.applyHighlighting(sourceTag, 'madeUpTag');
     var modifiedHtml = sourceTag.find('.page-source').html();
-    assert.equal(modifiedHtml, '<span class="highlight">&lt; madeUpTag someprop &gt;</span>', 'Highlighting applied')
+    assert.equal(modifiedHtml, '<span class="highlight">&lt; madeUpTag someprop &gt;</span>', 'Highlighting applied: Normal case')
+
+    var sourceTag = $('<pre><code class="page-source">&lt; madeUpTag/&gt;</code></pre>');
+    PageSummaryUtils.applyHighlighting(sourceTag, 'madeUpTag');
+    var modifiedHtml = sourceTag.find('.page-source').html();
+    assert.equal(modifiedHtml, '<span class="highlight">&lt; madeUpTag/&gt;</span>', 'Highlighting applied: <br/> case')
+
+    var sourceTag = $('<pre><code class="page-source">&lt; madeUpTag&gt;</code></pre>');
+    PageSummaryUtils.applyHighlighting(sourceTag, 'madeUpTag');
+    var modifiedHtml = sourceTag.find('.page-source').html();
+    assert.equal(modifiedHtml, '<span class="highlight">&lt; madeUpTag&gt;</span>', 'Highlighting applied <img> case')
 });
 
 QUnit.test( "Test removeHighlighting", function( assert ) {
