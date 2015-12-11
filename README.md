@@ -33,7 +33,9 @@ parser. BeautifulSoup because it has a clean interface and lxml
 because it is a fast C based HTML parser. I could have just as well
 used something much simpler to get a list of tags and their counts,
 but I also wanted to prettyprint the HTML so I went with
-BeautifulSoup.
+BeautifulSoup. Please note that I have tried to keep the physical
+layout of files and folders, close to what I would have if this was a
+larger application.
 
 The app's frontend is built on top of Jinja2, Bootstrap and
 jQuery. Flask and Bootstrap play well together so I was able to
