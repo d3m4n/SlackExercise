@@ -1,12 +1,12 @@
 $(document).ready(function() {
     $('.error').hide();
-    $('#summary-spinner').hide();
+    $('#summary-spinner-container').hide();
 
     $(document).ajaxStart(function(){
-        $('#summary-spinner').show();
+        $('#summary-spinner-container').show();
     });
     $(document).ajaxStop(function(){
-        $('#summary-spinner').hide();
+        $('#summary-spinner-container').hide();
     });
 
     $('#url_field').val('http://');

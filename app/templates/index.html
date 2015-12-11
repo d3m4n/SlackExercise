@@ -24,13 +24,21 @@
     {{ wtf.quick_form(form, method='get') }}
 </div>
 
-<div class="container spinner-container">
+<div id="summary-spinner-container" class="container spinner-container">
+  <div class="container">
+    <div class="row spacer">
+    </div>
+  </div>
     <div id="summary-spinner" class="spinner-loader">
         Loading…
     </div>
 </div>
 
 <div class="container error">
+  <div class="container">
+    <div class="row spacer">
+    </div>
+  </div>
     <div class="alert alert-danger" role="alert">
         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
         <span class="sr-only">Error:</span>
