@@ -2,6 +2,7 @@ pytest
 requests
 beautifulsoup4
 lxml
+gevent
 flask<=0.10.1
 flask-script<=2.0.5
 flask-bootstrap<=3.3.5.7

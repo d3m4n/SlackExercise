@@ -8,7 +8,10 @@ Please run the following commands from the root of the folder
 * source venv/bin/activate (Optional, but recommended)
 * pip install -r requirements.txt
 * python server.py runserver
-The server will now be up and running at port 5000.
+  The server will now be up and running at port 5000.
+* env APP_CONFIG=prod python server.py
+  This will start the server on port 5000
+  with prod config using Gevent for concurrency
 
 ## Running tests
 To run python tests please run the following
@@ -35,7 +38,14 @@ used something much simpler to get a list of tags and their counts,
 but I also wanted to prettyprint the HTML so I went with
 BeautifulSoup. Please note that I have tried to keep the physical
 layout of files and folders, close to what I would have if this was a
-larger application.
+larger application. Flask is single threaded, blocking by default.
+The app should be run within a WSGI container. uwsgi and Nginx have
+proven performant for handling concurrent requests, so they would be
+my first choice. Other alternatives are listed at:
+http://flask.pocoo.org/docs/0.10/deploying/ Note that the production
+config runs the app with gevent under a WSGI container to increase
+concurrency. This is no substitute for the more performant option
+listed earlier.
 
 The app's frontend is built on top of Jinja2, Bootstrap and
 jQuery. Flask and Bootstrap play well together so I was able to
